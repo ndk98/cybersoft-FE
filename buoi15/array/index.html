@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Array</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="container">
+                <h1>Array</h1>
+                <form>
+                    <div class="mb-3">
+                        <label for="array-items" class="form-label"
+                            >Phần tử của array</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="array-items"
+                            aria-describedby="array-items"
+                            placeholder="Nhập vào các phần tử của array, cách nhau bằng dấu phẩy."
+                            required
+                        />
+                        <div id="example" class="form-text">
+                            Example: 1,2,3,4,5,6,7,8,9
+                        </div>
+                    </div>
+                </form>
+                <div class="d-flex align-items-start">
+                    <div
+                        class="nav flex-column nav-pills me-3"
+                        id="v-pills-tab"
+                        role="tablist"
+                        aria-orientation="vertical"
+                    >
+                        <button
+                            class="nav-link active"
+                            id="v-pills-bai1-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#v-pills-bai1"
+                            type="button"
+                            role="tab"
+                            aria-controls="v-pills-bai1"
+                            aria-selected="true"
+                        >
+                            Bài 1
+                        </button>
+                        <button
+                            class="nav-link"
+                            id="v-pills-bai2-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#v-pills-bai2"
+                            type="button"
+                            role="tab"
+                            aria-controls="v-pills-bai2"
+                            aria-selected="false"
+                        >
+                            Bài 2
+                        </button>
+                        <button
+                            class="nav-link"
+                            id="v-pills-bai3-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#v-pills-bai3"
+                            type="button"
+                            role="tab"
+                            aria-controls="v-pills-bai3"
+                            aria-selected="false"
+                        >
+                            Bài 3
+                        </button>
+                        <button
+                            class="nav-link"
+                            id="v-pills-bai4-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#v-pills-bai4"
+                            type="button"
+                            role="tab"
+                            aria-controls="v-pills-bai4"
+                            aria-selected="false"
+                        >
+                            Bài 4
+                        </button>
+                        <button
+                            class="nav-link"
+                            id="v-pills-bai5-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#v-pills-bai5"
+                            type="button"
+                            role="tab"
+                            aria-controls="v-pills-bai5"
+                            aria-selected="false"
+                        >
+                            Bài 5
+                        </button>
+                        <button
+                            class="nav-link"
+                            id="v-pills-bai6-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#v-pills-bai6"
+                            type="button"
+                            role="tab"
+                            aria-controls="v-pills-bai6"
+                            aria-selected="false"
+                        >
+                            Bài 6
+                        </button>
+                        <button
+                            class="nav-link"
+                            id="v-pills-bai7-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#v-pills-bai7"
+                            type="button"
+                            role="tab"
+                            aria-controls="v-pills-bai7"
+                            aria-selected="false"
+                        >
+                            Bài 7
+                        </button>
+                        <button
+                            class="nav-link"
+                            id="v-pills-bai8-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#v-pills-bai8"
+                            type="button"
+                            role="tab"
+                            aria-controls="v-pills-bai8"
+                            aria-selected="false"
+                        >
+                            Bài 8
+                        </button>
+                        <button
+                            class="nav-link"
+                            id="v-pills-bai9-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#v-pills-bai9"
+                            type="button"
+                            role="tab"
+                            aria-controls="v-pills-bai9"
+                            aria-selected="false"
+                        >
+                            Bài 9
+                        </button>
+                        <button
+                            class="nav-link"
+                            id="v-pills-bai10-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#v-pills-bai10"
+                            type="button"
+                            role="tab"
+                            aria-controls="v-pills-bai10"
+                            aria-selected="false"
+                        >
+                            Bài 10
+                        </button>
+                    </div>
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div
+                            class="tab-pane fade show active"
+                            id="v-pills-bai1"
+                            role="tabpanel"
+                            aria-labelledby="v-pills-bai1-tab"
+                        >
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div>
+                                        <h2>Đề bài</h2>
+                                        <p>Tổng các số dương trong mảng.</p>
+                                    </div>
+                                    <div>
+                                        Kết quả: <span id="result-bai1"></span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        onclick="handleBai1();"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="tab-pane fade"
+                            id="v-pills-bai2"
+                            role="tabpanel"
+                            aria-labelledby="v-pills-bai2-tab"
+                        >
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div>
+                                        <h2>Đề bài</h2>
+                                        <p>
+                                            Đếm có bao nhiêu số dương trong
+                                            mảng.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        Kết quả: <span id="result-bai2"></span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        onclick="handleBai2();"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="tab-pane fade"
+                            id="v-pills-bai3"
+                            role="tabpanel"
+                            aria-labelledby="v-pills-bai3-tab"
+                        >
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div>
+                                        <h2>Đề bài</h2>
+                                        <p>Tìm số nhỏ nhất trong mảng.</p>
+                                    </div>
+                                    <div>
+                                        Kết quả: <span id="result-bai3"></span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        onclick="handleBai3();"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="tab-pane fade"
+                            id="v-pills-bai4"
+                            role="tabpanel"
+                            aria-labelledby="v-pills-bai4-tab"
+                        >
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div>
+                                        <h2>Đề bài</h2>
+                                        <p>Tìm số dương nhỏ nhất trong mảng.</p>
+                                    </div>
+                                    <div>
+                                        Kết quả: <span id="result-bai4"></span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        onclick="handleBai4();"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="tab-pane fade"
+                            id="v-pills-bai5"
+                            role="tabpanel"
+                            aria-labelledby="v-pills-bai5-tab"
+                        >
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div>
+                                        <h2>Đề bài</h2>
+                                        <p>
+                                            Tìm số chẵn cuối cùng trong mảng.
+                                            Nếu mảng không có giá trị chẵn thì
+                                            trả về -1.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        Kết quả: <span id="result-bai5"></span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        onclick="handleBai5();"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="tab-pane fade"
+                            id="v-pills-bai6"
+                            role="tabpanel"
+                            aria-labelledby="v-pills-bai6-tab"
+                        >
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div>
+                                        <h2>Đề bài</h2>
+                                        <p>
+                                            Đổi chỗ 2 giá trị trong mảng theo vị
+                                            trí (Cho nhập vào 2 vị trí muốn đổi
+                                            chỗ giá trị).
+                                        </p>
+                                    </div>
+                                    <div>
+                                        Kết quả: <span id="result-bai6"></span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        onclick="handleBai6();"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="tab-pane fade"
+                            id="v-pills-bai7"
+                            role="tabpanel"
+                            aria-labelledby="v-pills-bai7-tab"
+                        >
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div>
+                                        <h2>Đề bài</h2>
+                                        <p>
+                                            Sắp xếp mảng theo thứ tự tăng dần.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        Kết quả: <span id="result-bai7"></span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        onclick="handleBai7();"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="tab-pane fade"
+                            id="v-pills-bai8"
+                            role="tabpanel"
+                            aria-labelledby="v-pills-bai8-tab"
+                        >
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div>
+                                        <h2>Đề bài</h2>
+                                        <p>
+                                            Tìm số nguyên tố đầu tiên trong
+                                            mảng. Nếu mảng không có số nguyên tố
+                                            thì trả về – 1.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        Kết quả: <span id="result-bai8"></span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        onclick="handleBai8();"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="tab-pane fade"
+                            id="v-pills-bai9"
+                            role="tabpanel"
+                            aria-labelledby="v-pills-bai9-tab"
+                        >
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div>
+                                        <h2>Đề bài</h2>
+                                        <p>
+                                            Nhập thêm 1 mảng số thực, tìm xem
+                                            trong mảng có bao nhiêu số nguyên?
+                                        </p>
+                                    </div>
+                                    <div>
+                                        Kết quả: <span id="result-bai9"></span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        onclick="handleBai9();"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="tab-pane fade"
+                            id="v-pills-bai10"
+                            role="tabpanel"
+                            aria-labelledby="v-pills-bai10-tab"
+                        >
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div>
+                                        <h2>Đề bài</h2>
+                                        <p>
+                                            So sánh số lượng số dương và số
+                                            lượng số âm xem số nào nhiều hơn.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        Kết quả: <span id="result-bai10"></span>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary"
+                                        onclick="handleBai10();"
+                                    >
+                                        Kiểm tra
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+        <script src="./main.js"></script>
+    </body>
+</html>
