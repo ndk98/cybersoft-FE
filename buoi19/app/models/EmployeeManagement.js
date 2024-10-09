@@ -6,8 +6,10 @@ class EmployeeManagement {
         this.employeeList = this.employeeData.getList();
     }
 
-    getListHtml() {
-        let employees = this.employeeList;
+    getListHtml(employees = []) {
+        if (!employees.length) {
+            employees = this.employeeList;
+        }
 
         if (!employees.length) {
             return "";
@@ -67,6 +69,22 @@ class EmployeeManagement {
         return this.employeeList.find(
             (employee) => employee.username === username
         );
+    }
+
+    checkExistUsername(username) {
+        if (!this.employeeList) return false;
+
+        return this.employeeList.some(
+            (employee) => employee.username === username
+        );
+    }
+
+    filterEmployee(searchValue) {
+        if (!this.employeeList) return [];
+
+        return this.employeeList.filter((employee) => {
+            return employee.employeeType.includes(searchValue);
+        });
     }
 
     getIndexEmployeeByUserName(username) {

@@ -117,6 +117,29 @@ window.onload = () => {
         closeModal();
     }
 
+    // Filter employee
+    let searchInput = document.getElementById("search-input");
+    searchInput.oninput = filterEmployee;
+    function filterEmployee() {
+        let searchValue = searchInput.value;
+        let filteredList = employeeManagement.filterEmployee(searchValue);
+        let listElement = document.getElementById("tableDanhSach");
+        listElement.innerHTML = employeeManagement.getListHtml(filteredList);
+
+        if (document.getElementById("tableDanhSach").children.length) {
+            let editButtons = document.querySelectorAll("button.btn-edit");
+
+            for (let editBtn of editButtons) {
+                editBtn.addEventListener("click", showEditModal);
+            }
+
+            let deleteButtons = document.querySelectorAll("button.btn-delete");
+            for (let deleteButton of deleteButtons) {
+                deleteButton.addEventListener("click", deleteEmployee);
+            }
+        }
+    }
+
     function validateForm(
         username,
         name,
@@ -139,6 +162,15 @@ window.onload = () => {
             errorElem.innerText = usernameValidated.message;
             errorElem.style.display = "block";
             valid = false;
+        }
+
+        if (!form.elements["origin-username"].value) {
+            if (employeeManagement.checkExistUsername(username)) {
+                const errorElem = document.getElementById("tb-username");
+                errorElem.innerText = "Tài khoản đã tồn tại";
+                errorElem.style.display = "block";
+                valid = false;
+            }
         }
 
         // Validate name
